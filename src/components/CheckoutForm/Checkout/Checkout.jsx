@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from "@material-ui/core";
+import { Link, } from "react-router-dom";
 import { commerce } from "../../../Library/commerce";
 import useStyles from "./styles";
 import AdressForm from "../AddressForm";
@@ -13,6 +13,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({});
     const classes = useStyles();
+    
 
     useEffect(() => {
         const generateToken = async () => {
@@ -36,6 +37,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         nextStep();
     }
 
+    
+
     let Confirmation = () => order.customer ? (
         
             <>
@@ -47,7 +50,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
                 <br />
                 <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
             </>
-    ) : (
+    )  : (
         <div className={classes.spinner}>
             <CircularProgress />
         </div>
@@ -66,6 +69,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} />
     return (
         <>
+        <CssBaseline />
             <div className={classes.toolbar} />
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
