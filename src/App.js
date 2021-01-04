@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { commerce } from "./Library/commerce";
-import { Products, Navbar, Cart, Checkout } from "./components";
+import { Products, Navbar, Cart, Checkout, Headwears } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
@@ -11,7 +11,12 @@ const App = () => {
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
-        
+        data.map( result => {
+            let categories = result.categories;
+            categories.map( res => {
+                console.log(res.name)
+            })
+       })
         setProducts(data);
     }
 
@@ -73,6 +78,9 @@ const App = () => {
                 <Switch>
                     <Route exact path="/">
                         <Products products={products} onAddToCart={handleAddToCart} />
+                    </Route>
+                    <Route exact path="/headwear">
+                        <Headwears products={products} onAddToCart={handleAddToCart} />
                     </Route>
                     <Route exact path="/cart">
                         <Cart cart={cart}
