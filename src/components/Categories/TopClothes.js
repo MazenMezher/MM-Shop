@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 import { Grid } from "@material-ui/core";
 
-import Product from "../Product/Product"
+import TopClothing from "../CategoryItems/TopClothing";
 import useStyles from "./styles";
 
-const Products = ({ products, onAddToCart }) => {
+const TopClothes = ({ products, onAddToCart }) => {
     const classes = useStyles();
-    console.log(products);
+    let productBox = products.filter(prod => prod.categories[0].name === "Top clothes");
     return (
         <main className={classes.content}>
             <div className={classes.toolbar} />
         <Grid container justify="center" spacing={4}>
-            {products.map((product) =>(
+            {productBox.map((product) =>(
                 <Grid item key={product.id} xs={12} sm={6} lg={3}>
-                    <Product product={product} onAddToCart={onAddToCart} />
+                    <TopClothing product={product} onAddToCart={onAddToCart} />
                 </Grid>
             ))}
         </Grid>
@@ -21,4 +21,4 @@ const Products = ({ products, onAddToCart }) => {
     )
 }
 
-export default Products;
+export default TopClothes

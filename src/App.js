@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { commerce } from "./Library/commerce";
-import { Products, Navbar, Cart, Checkout, Headwears } from "./components";
+import { Products, Navbar, Cart, Checkout, Headwears, TopClothes, BottomClothes, Shoes } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
@@ -51,7 +51,6 @@ const App = () => {
 
     const refreshCart = async () => {
         const newCart = await commerce.cart.refresh();
-        console.log("works2")
         setCart(newCart);
     }
 
@@ -81,6 +80,15 @@ const App = () => {
                     </Route>
                     <Route exact path="/headwear">
                         <Headwears products={products} onAddToCart={handleAddToCart} />
+                    </Route>
+                    <Route exact path="/topclothes">
+                        <TopClothes products={products} onAddToCart={handleAddToCart} />
+                    </Route>
+                    <Route exact path="/bottomclothes">
+                        <BottomClothes products={products} onAddToCart={handleAddToCart} />
+                    </Route>
+                    <Route exact path="/shoes">
+                        <Shoes products={products} onAddToCart={handleAddToCart} />
                     </Route>
                     <Route exact path="/cart">
                         <Cart cart={cart}
