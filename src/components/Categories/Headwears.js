@@ -6,10 +6,7 @@ import useStyles from "./styles";
 
 const Headwears = ({ products, onAddToCart }) => {
     const classes = useStyles();
-    // [productBox].filter(prod => (prod.categories[0].name === "Headwear")
-    // let headwear = products;
-    // console.log(headwear)
-    let productBox = products.filter(prod => prod.categories[0].name === "Headwear");
+    let productBox = products.filter(prod => prod.categories[0].name === "Headwear" );
 
     return (
         <main className={classes.content}>

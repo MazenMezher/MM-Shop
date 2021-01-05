@@ -5,7 +5,10 @@ import { AddShoppingCart } from "@material-ui/icons";
 import useStyles from "./styles";
 
 const Headwear = ({ product, onAddToCart }) => {
-    const classes = useStyles();    
+    console.log(product.conditionals.is_sold_out)
+
+    const classes = useStyles();   
+    if(product.conditionals.is_sold_out === false){
         return (
             <Card className={classes.root}>
                 <CardMedia className={classes.media} image={product.media.source} title={product.name} />
@@ -27,6 +30,14 @@ const Headwear = ({ product, onAddToCart }) => {
                 </CardActions>
             </Card>
         )
+    } else {
+        return (
+            <div>
+                All our headwear is sold out!
+            </div>
+        )
+    }
+        
     }
     
 

@@ -6,6 +6,7 @@ import useStyles from "./styles";
 
 const Shoe = ({ product, onAddToCart }) => {
     const classes = useStyles();    
+    if(product.conditionals.is_sold_out === false){
         return (
             
             <Card className={classes.root}>
@@ -28,6 +29,13 @@ const Shoe = ({ product, onAddToCart }) => {
                 </CardActions>
             </Card>
         )
+        } else {
+            return (
+                <div>
+                All our headwear is sold out!
+                </div>
+            )
+    }
 }
 
 export default Shoe
