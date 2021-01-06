@@ -7,7 +7,19 @@ import useStyles from "./styles";
 const Products = ({ products, onAddToCart }) => {
     const classes = useStyles();
     // let productBox = products.filter(prod => prod.categories[0].name === "Headwear");
-
+    // [cart].map(cartProd => {
+    //     cartProd.line_items.map(innerProd => {
+    //         // console.log(innerProd.product_id && innerProd.quantity)
+    //         let cartItemId = innerProd.product_id;
+    //         let cartItemQuantity = innerProd.quantity;
+            
+    //     })
+    // })
+    // products.map(prod => {
+    //     if(prod.id.quantity){
+    //         console.log(prod.id.quantity)
+    //     }
+    // })
     return (
         <>
         <main className={classes.content}>

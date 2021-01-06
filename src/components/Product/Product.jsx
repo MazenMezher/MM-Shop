@@ -6,7 +6,9 @@ import useStyles from "./styles";
 
 const Product = ({ product, onAddToCart }) => {
     const classes = useStyles();
+    
     if(product.conditionals.is_sold_out === false){
+        
     return (
         <Card className={classes.root}>
             <CardMedia className={classes.media} image={product.media.source} title={product.name} />

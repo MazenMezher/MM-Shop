@@ -6,15 +6,14 @@ import { Grid } from "@material-ui/core";
 
 const App = () => {
     const [products, setProducts] = useState([]);
+    const [itemQuan, setItemQuan] = useState("");
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
-        console.log(data)
         setProducts(data);
-        console.log(data)
     }
 
     const fetchCart = async () => {
@@ -23,19 +22,39 @@ const App = () => {
 
     const handleAddToCart = async (productId, quantity) => {
         const { cart } = await commerce.cart.add(productId, quantity);
-
         setCart(cart);
+        console.log(cart)
+        fetchProducts();
+        // commerce.productId.remove(productId, 1);
+        // console.log(productId)
+        products.map(prod => {
+            [prod].map(innerProd => {
+                // setProducts(commerce.innerProd.remove(innerProd.id, innerProd.quantity))
+                // console.log(innerProd.id)
+                // console.log(innerProd)
+            })
+        })
     }
-
+    
+    // const handleItemRemove = async (productId, quantity) => {
+    //     fetchProducts();
+    //     products.map(prod => {
+    //         [prod].map(innerProd => {
+    //             setProducts(commerce.innerProd.remove(innerProd.id, innerProd.quantity))
+    //             console.log(innerProd.id)
+    //             console.log(innerProd.quantity)
+    //         })
+    //     })
+    // }
+    
     const handleUpdateCartQty = async (productId, quantity) => {
         const { cart } = await commerce.cart.update(productId, { quantity });
-
         setCart(cart);
+        fetchProducts(); 
     }
 
     const handleRemoveFromCart = async (productId) => {
         const { cart } = await commerce.cart.remove(productId);
-
         setCart(cart);
     }
 
@@ -61,6 +80,7 @@ const App = () => {
             console.log(error)
         }
     }
+    
  
     useEffect(() => {
         fetchProducts();
@@ -74,7 +94,7 @@ const App = () => {
                 <Navbar totalItems={cart.total_items} />
                 <Switch>
                     <Route exact path="/">
-                        <Products products={products} onAddToCart={handleAddToCart} />
+                        <Products products={products} onAddToCart={handleAddToCart}  />
                     </Route>
                     <Route exact path="/headwear">
                         <Headwears products={products} onAddToCart={handleAddToCart} />

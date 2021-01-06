@@ -46,8 +46,6 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         }, 3000);
     }
 
-    
-
     let Confirmation = () => order.customer ? (
         
             <>
