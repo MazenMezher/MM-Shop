@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { commerce } from "./Library/commerce";
-import { Products, Navbar, Cart, Checkout, Headwears, TopClothes, BottomClothes, Shoes } from "./components";
+import { Products, Navbar, Cart, Checkout, Headwears, TopClothes, BottomClothes, Shoes, Belts } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Grid } from "@material-ui/core";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -11,13 +12,9 @@ const App = () => {
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
-        data.map( result => {
-            let categories = result.categories;
-            categories.map( res => {
-                console.log(res.name)
-            })
-       })
+        console.log(data)
         setProducts(data);
+        console.log(data)
     }
 
     const fetchCart = async () => {
@@ -61,14 +58,15 @@ const App = () => {
             setOrder(incomingOrder);
             refreshCart();
         } catch (error) {
-            setErrorMessage(error.data.error.message);
+            console.log(error)
         }
     }
  
     useEffect(() => {
         fetchProducts();
         fetchCart();
-    }, []);
+        console.log("cart and products are updated")
+    }, [order]);
     
     return (
         <Router>
@@ -90,6 +88,9 @@ const App = () => {
                     <Route exact path="/shoes">
                         <Shoes products={products} onAddToCart={handleAddToCart} />
                     </Route>
+                    <Route exact path="/belts">
+                        <Belts products={products} onAddToCart={handleAddToCart} />
+                    </Route>
                     <Route exact path="/cart">
                         <Cart cart={cart}
                             handleUpdateCartQty={handleUpdateCartQty}
@@ -98,7 +99,7 @@ const App = () => {
                         />
                     </Route>
                     <Route exact path="/checkout">
-                        <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
+                        <Checkout products={products} cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
                     </Route>
                 </Switch>
             </div>

@@ -13,10 +13,10 @@ const BottomClothing = ({ product, onAddToCart }) => {
                 <CardMedia className={classes.media} image={product.media.source} title={product.name} />
                 <CardContent>
                     <div className={classes.cardContent}>
-                        <Typography cariant="h5" gutterBottom>
+                        <Typography variant="h5" gutterBottom>
                             {product.name}
                         </Typography>
-                        <Typography cariant="h5">
+                        <Typography variant="h5">
                             {product.price.formatted_with_symbol}
                         </Typography>
                     </div>
@@ -31,9 +31,27 @@ const BottomClothing = ({ product, onAddToCart }) => {
         ) 
     } else {
         return (
-            <div>
-                All our headwear is sold out!
-            </div>
+            <Card className={classes.root}>
+                <CardMedia className={classes.media} image={product.media.source} title={product.name} />
+                <CardContent>
+                    <div className={classes.cardContent}>
+                        <Typography variant="h5" gutterBottom>
+                            {product.name}
+                        </Typography>
+                        <Typography variant="h5">
+                            {product.price.formatted_with_symbol}
+                        </Typography>
+                    </div>
+                    <Typography variant="h5" color="textSecondary">
+                        Item is out of stock!
+                    </Typography>
+                </CardContent>
+                <CardActions disableSpacing className={classes.cardActions}>
+                    <IconButton aria-label="Add to Card" >
+                        <AddShoppingCart style={{color: "red"}} />
+                        </IconButton>
+                </CardActions>
+            </Card>
         )
     }
 }

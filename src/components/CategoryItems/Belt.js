@@ -4,7 +4,7 @@ import { AddShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
 
-const TopClothing = ({ product, onAddToCart }) => {
+const Belt = ({ product, onAddToCart }) => {
     const classes = useStyles();    
     if(product.conditionals.is_sold_out === false){
         return (
@@ -28,10 +28,10 @@ const TopClothing = ({ product, onAddToCart }) => {
                     </IconButton>
                 </CardActions>
             </Card>
-        )
-        } else {
-            return (
-                <Card className={classes.root}>
+        ) 
+    } else {
+        return (
+            <Card className={classes.root}>
                 <CardMedia className={classes.media} image={product.media.source} title={product.name} />
                 <CardContent>
                     <div className={classes.cardContent}>
@@ -44,17 +44,16 @@ const TopClothing = ({ product, onAddToCart }) => {
                     </div>
                     <Typography variant="h5" color="textSecondary">
                         Item is out of stock!
-                    </Typography>
-                    <CardActions disableSpacing className={classes.cardActions}>
-                    <IconButton aria-label="Add to Card" >
-                    <AddShoppingCart style={{color: "red"}} />
-                        </IconButton>
-                    </CardActions>
+                    </Typography> 
                 </CardContent>
+                <CardActions disableSpacing className={classes.cardActions}>
+                    <IconButton aria-label="Add to Card" >
+                        <AddShoppingCart style={{color: "red"}} />
+                        </IconButton>
+                </CardActions>
             </Card>
-            )
-        }
-    } 
-    
+        )
+    }
+}
 
-export default TopClothing
+export default Belt
