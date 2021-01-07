@@ -15,7 +15,6 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [shippingData, setShippingData] = useState({});
     const history = useHistory();
     const classes = useStyles();
-    
 
     useEffect(() => {
         const generateToken = async () => {
@@ -43,7 +42,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const timeout = () => {
         setTimeout(() => {
             setIsFinished(true)
-        }, 3000);
+        }, 5000);
     }
 
     let Confirmation = () => order.customer ? (
@@ -79,6 +78,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
         </>
     }
+
 
     const Form = () => activeStep === 0
         ? <AdressForm checkoutToken={checkoutToken} next={next} />

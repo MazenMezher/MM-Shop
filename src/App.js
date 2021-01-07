@@ -22,31 +22,18 @@ const App = () => {
 
     const handleAddToCart = async (productId, quantity) => {
         const { cart } = await commerce.cart.add(productId, quantity);
-        setCart(cart);
-        console.log(cart)
-        fetchProducts();
-        // commerce.productId.remove(productId, 1);
-        // console.log(productId)
-        products.map(prod => {
-            [prod].map(innerProd => {
-                // setProducts(commerce.innerProd.remove(innerProd.id, innerProd.quantity))
-                // console.log(innerProd.id)
-                // console.log(innerProd)
-            })
-        })
+        setCart(productId);
+        for (let cart_item of cart.line_items) {
+            cart.line_items.forEach(function(item){
+                console.log(item)
+                console.log(item.product_id)
+                console.log(item.quantity);
+                console.log(cart.line_items)
+            });
     }
-    
-    // const handleItemRemove = async (productId, quantity) => {
-    //     fetchProducts();
-    //     products.map(prod => {
-    //         [prod].map(innerProd => {
-    //             setProducts(commerce.innerProd.remove(innerProd.id, innerProd.quantity))
-    //             console.log(innerProd.id)
-    //             console.log(innerProd.quantity)
-    //         })
-    //     })
-    // }
-    
+    fetchProducts();
+    console.log(products)
+}
     const handleUpdateCartQty = async (productId, quantity) => {
         const { cart } = await commerce.cart.update(productId, { quantity });
         setCart(cart);
@@ -70,11 +57,19 @@ const App = () => {
         setCart(newCart);
     }
 
-    const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+    const handleCaptureCheckout = async (checkoutTokenId, newOrder, products) => {
         try {
             const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
             console.log("works");
+            
             setOrder(incomingOrder);
+            incomingOrder.order.line_items.map(prod => {
+                
+                let cartProdId = prod.product_id;
+                let cartProdQuantity = prod.quantity;
+                let values = [cartProdId, cartProdQuantity];
+                console.log(values)
+            })
             refreshCart();
         } catch (error) {
             console.log(error)
@@ -97,7 +92,7 @@ const App = () => {
                         <Products products={products} onAddToCart={handleAddToCart}  />
                     </Route>
                     <Route exact path="/headwear">
-                        <Headwears products={products} onAddToCart={handleAddToCart} />
+                        <Headwears products={products} onAddToCart={handleAddToCart} /> 
                     </Route>
                     <Route exact path="/topclothes">
                         <TopClothes products={products} onAddToCart={handleAddToCart} />
@@ -116,6 +111,7 @@ const App = () => {
                             handleUpdateCartQty={handleUpdateCartQty}
                             handleRemoveFromCart={handleRemoveFromCart}
                             handleEmptyCart={handleEmptyCart}
+                            
                         />
                     </Route>
                     <Route exact path="/checkout">
