@@ -6,7 +6,8 @@ import { Grid } from "@material-ui/core";
 
 const App = () => {
     const [products, setProducts] = useState([]);
-    const [itemQuan, setItemQuan] = useState("");
+    const [itemQuan, setItemQuan] = useState([]);
+    const [itemQuanInCart, setItemQuanInCart] = useState([]);
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
@@ -22,18 +23,45 @@ const App = () => {
 
     const handleAddToCart = async (productId, quantity) => {
         const { cart } = await commerce.cart.add(productId, quantity);
-        setCart(productId);
-        for (let cart_item of cart.line_items) {
-            cart.line_items.forEach(function(item){
-                console.log(item)
-                console.log(item.product_id)
-                console.log(item.quantity);
-                console.log(cart.line_items)
-            });
-    }
-    fetchProducts();
-    console.log(products)
+        
+        // for (let cart_item of cart.line_items) {
+        //     cart.line_items.forEach(function(item){
+        //         setItemQuanInCart([item.product_id, item.quantity])
+        //     });
+        // }
+        
+        // for (let prod of products) {
+        //         setItemQuan([...itemQuan, {
+        //             id: productId,
+        //             value: prod.quantity
+        //         }]);
+                
+        // }
+
+        cart.line_items.forEach(function(item){
+            
+            // for loop 2
+        for (let prod of products) {
+            console.log(item.quantity)
+                    // if sats för checka
+                    if(item.quantity <= prod.quantity){
+                        console.log("u can add item")
+                    } else {
+                        console.log("gtfo")
+                    }
+                console.log(prod.quantity)
+            }
+
+
+    });
+
+        setCart(cart);
+        fetchProducts();
+        
+        
 }
+
+
     const handleUpdateCartQty = async (productId, quantity) => {
         const { cart } = await commerce.cart.update(productId, { quantity });
         setCart(cart);
