@@ -7,7 +7,7 @@ import useStyles from "./styles";
 const Belt = ({ product, onAddToCart, letAdd ,productID }) => {
     
     const classes = useStyles(); 
-    console.log(product.id)
+    
     console.log(productID)
     if(product.id === productID && letAdd === false){
         return (
@@ -17,9 +17,6 @@ const Belt = ({ product, onAddToCart, letAdd ,productID }) => {
                     <div className={classes.cardContent}>
                         <Typography variant="h5" gutterBottom>
                             {product.name}
-                        </Typography>
-                        <Typography variant="h5">
-                            {product.price.formatted_with_symbol}
                         </Typography>
                     </div>
                     <Typography  variant="h5" color="textSecondary">
@@ -46,8 +43,12 @@ const Belt = ({ product, onAddToCart, letAdd ,productID }) => {
                         <Typography variant="h5" gutterBottom>
                             {product.name}
                         </Typography>
+                        
                         <Typography variant="h5">
-                            {product.price.formatted_with_symbol}
+                            {product.price.formatted + " kr"}
+                        </Typography>
+                        <Typography variant="h5" gutterBottom>
+                            {product.quantity} in Stock
                         </Typography>
                     </div>
                     <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" />
@@ -69,7 +70,7 @@ const Belt = ({ product, onAddToCart, letAdd ,productID }) => {
                             {product.name}
                         </Typography>
                         <Typography variant="h5">
-                            {product.price.formatted_with_symbol}
+                            {product.price.formatted + " kr"}
                         </Typography>
                     </div>
                     <Typography variant="h5" color="textSecondary">
