@@ -4,21 +4,48 @@ import { AddShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
 
-const Product = ({ product, onAddToCart }) => {
+const Product = ({ product, onAddToCart, letAdd, productID}) => {
     const classes = useStyles();
-    
-    if(product.conditionals.is_sold_out === false){
+    console.log(product.id)
+    console.log(productID)
+    if(product.id === productID && letAdd === false){
+        return (
+            <Card className={classes.root}>
+                <CardMedia className={classes.media} image={product.media.source} title={product.name} />
+                <CardContent>
+                    <div className={classes.cardContent}>
+                        <Typography variant="h5" gutterBottom>
+                            {product.name}
+                        </Typography>
+                        <Typography variant="h5">
+                            {product.price.formatted_with_symbol}
+                        </Typography>
+                    </div>
+                    <Typography  variant="h5" color="textSecondary">
+                        Item is out of stock!
+                    </Typography>
+                </CardContent>
+                <CardActions disableSpacing className={classes.cardActions}>
+                    <IconButton aria-label="Add to Card" >
+                        <AddShoppingCart style={{color: "red"}} />
+                    </IconButton>
+                </CardActions>
+            </Card>
+            
+        )
+     }
         
+    if(product.conditionals.is_sold_out === false ){
     return (
         <Card className={classes.root}>
             <CardMedia className={classes.media} image={product.media.source} title={product.name} />
             <CardContent>
                 <div className={classes.cardContent}>
-                    <Typography cariant="h5" gutterBottom>
+                    <Typography variant="h5" gutterBottom>
                         {product.name}
                     </Typography>
-                    <Typography cariant="h5">
-                        {product.price.formatted_with_symbol}
+                    <Typography variant="h5">
+                        {product.price.formatted + " kr"}
                     </Typography>
                 </div>
                 <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" />
@@ -31,30 +58,35 @@ const Product = ({ product, onAddToCart }) => {
         </Card>
     )
 } else {
-    return (
-        <Card className={classes.root}>
-            <CardMedia className={classes.media} image={product.media.source} title={product.name} />
-            <CardContent>
-                <div className={classes.cardContent}>
-                    <Typography variant="h5" gutterBottom>
-                        {product.name}
+        return (
+            <Card className={classes.root}>
+                <CardMedia className={classes.media} image={product.media.source} title={product.name} />
+                <CardContent>
+                    <div className={classes.cardContent}>
+                        <Typography variant="h5" gutterBottom>
+                            {product.name}
+                        </Typography>
+                        <Typography variant="h5">
+                            {product.price.formatted_with_symbol}
+                        </Typography>
+                    </div>
+                    <Typography  variant="h5" color="textSecondary">
+                        Item is out of stock!
                     </Typography>
-                    <Typography variant="h5">
-                        {product.price.formatted_with_symbol}
-                    </Typography>
-                </div>
-                <Typography  variant="h5" color="textSecondary">
-                    Item is out of stock!
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Add to Card" >
-                    <AddShoppingCart style={{color: "red"}} />
-                </IconButton>
-            </CardActions>
-        </Card>
-    )
-}
-}
+                </CardContent>
+                <CardActions disableSpacing className={classes.cardActions}>
+                    <IconButton aria-label="Add to Card" >
+                        <AddShoppingCart style={{color: "red"}} />
+                    </IconButton>
+                </CardActions>
+            </Card>
+            
+        )
+    }
+    
+    }
+    
+
+
 
 export default Product

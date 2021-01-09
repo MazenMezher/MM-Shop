@@ -1,12 +1,14 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import Product from "../Product/Product"
 import useStyles from "./styles";
 
-const Products = ({ products, onAddToCart }) => {
+const Products = ({ products, onAddToCart, letAdd, productID }) => {
     const classes = useStyles();
-    // let productBox = products.filter(prod => prod.categories[0].name === "Headwear");
+    
+    let newProducts = products.filter(prod => prod.categories[0].name === "New products");
+    let productDiscount = products.filter(prod => prod.categories[0].name === "Products on discount");
     // [cart].map(cartProd => {
     //     cartProd.line_items.map(innerProd => {
     //         // console.log(innerProd.product_id && innerProd.quantity)
@@ -24,10 +26,25 @@ const Products = ({ products, onAddToCart }) => {
         <>
         <main className={classes.content}>
             <div className={classes.toolbar} />
+            <Typography variant="h4" className={classes.title} color="inherit">
+                        New Products
+                        <br />
+                    </Typography>
         <Grid container justify="center" spacing={4}>
-            {products.map((product) =>(
+            {newProducts.map((product) =>(
                 <Grid item key={product.id} xs={12} sm={6} lg={3}>
-                    <Product product={product} onAddToCart={onAddToCart} />
+                    <Product product={product} onAddToCart={onAddToCart} letAdd={letAdd} productID={productID} />
+                </Grid>
+            ))}
+        </Grid>
+        <Typography variant="h4" className={classes.title} color="inherit">
+                    Products with discount
+                    <br />
+        </Typography>
+        <Grid container justify="center" spacing={4}>
+            {productDiscount.map((product) =>(
+                <Grid item key={product.id} xs={12} sm={6} lg={3}>
+                    <Product product={product} onAddToCart={onAddToCart} letAdd={letAdd} productID={productID} />
                 </Grid>
             ))}
         </Grid>
