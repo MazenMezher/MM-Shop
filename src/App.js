@@ -24,11 +24,6 @@ const App = () => {
     const handleAddToCart = async (productId, quantity) => {
         const { cart } = await commerce.cart.add(productId, quantity);
         setProductID(productId)
-        
-        
-            // for loop 2
-            
-           
             console.log(products)
             const isValid = cart.line_items.every((cartItem) => {
                 const item = products.find(productsItem => cartItem.product_id === productsItem.id)
@@ -36,8 +31,6 @@ const App = () => {
                 return cartItem.quantity < item.quantity
             })
                         
-               
-             
         setCart(cart);
         fetchProducts();
         setLetAdd(isValid)
@@ -48,24 +41,49 @@ const App = () => {
 
     const handleUpdateCartQty = async (productId, quantity) => {
         const { cart } = await commerce.cart.update(productId, { quantity });
+
+        const isValid = cart.line_items.every((cartItem) => {
+            const item = products.find(productsItem => cartItem.product_id === productsItem.id)
+        
+            return cartItem.quantity < item.quantity
+        })
+        setLetAdd(isValid)
         setCart(cart);
         fetchProducts(); 
     }
 
     const handleRemoveFromCart = async (productId) => {
         const { cart } = await commerce.cart.remove(productId);
+        const isValid = cart.line_items.every((cartItem) => {
+            const item = products.find(productsItem => cartItem.product_id === productsItem.id)
+        
+            return cartItem.quantity < item.quantity
+        })
+        setLetAdd(isValid)
         setCart(cart);
     }
 
 
     const handleEmptyCart = async () => {
         const { cart } = await commerce.cart.empty();
+        const isValid = cart.line_items.every((cartItem) => {
+            const item = products.find(productsItem => cartItem.product_id === productsItem.id)
+        
+            return cartItem.quantity < item.quantity
+        })
+        setLetAdd(isValid)
 
         setCart(cart);
     }
 
     const refreshCart = async () => {
         const newCart = await commerce.cart.refresh();
+        const isValid = cart.line_items.every((cartItem) => {
+            const item = products.find(productsItem => cartItem.product_id === productsItem.id)
+        
+            return cartItem.quantity < item.quantity
+        })
+        setLetAdd(isValid)
         setCart(newCart);
     }
 
@@ -101,22 +119,22 @@ const App = () => {
                 <Navbar totalItems={cart.total_items} />
                 <Switch>
                     <Route exact path="/">
-                        <Products products={products} letAdd={letAdd} onAddToCart={handleAddToCart} productID={productID} />
+                        <Products products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart}  />
                     </Route>
                     <Route exact path="/headwear">
-                        <Headwears products={products} onAddToCart={handleAddToCart} /> 
+                        <Headwears products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart} /> 
                     </Route>
                     <Route exact path="/topclothes">
-                        <TopClothes products={products} onAddToCart={handleAddToCart} />
+                        <TopClothes products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart} />
                     </Route>
                     <Route exact path="/bottomclothes">
-                        <BottomClothes products={products} onAddToCart={handleAddToCart} />
+                        <BottomClothes products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart} />
                     </Route>
                     <Route exact path="/shoes">
-                        <Shoes products={products} onAddToCart={handleAddToCart} />
+                        <Shoes products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart} />
                     </Route>
                     <Route exact path="/belts">
-                        <Belts products={products} onAddToCart={handleAddToCart} />
+                        <Belts products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart} />
                     </Route>
                     <Route exact path="/cart">
                         <Cart cart={cart}

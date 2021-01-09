@@ -6,8 +6,7 @@ import useStyles from "./styles";
 
 const Product = ({ product, onAddToCart, letAdd, productID}) => {
     const classes = useStyles();
-    console.log(product.id)
-    console.log(productID)
+    
     if(product.id === productID && letAdd === false){
         return (
             <Card className={classes.root}>
@@ -22,7 +21,7 @@ const Product = ({ product, onAddToCart, letAdd, productID}) => {
                         </Typography>
                     </div>
                     <Typography  variant="h5" color="textSecondary">
-                        Item is out of stock!
+                        Max products added to cart!
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing className={classes.cardActions}>

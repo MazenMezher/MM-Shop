@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 import Headwear from "../CategoryItems/Headwear";
 import useStyles from "./styles";
 
-const Headwears = ({ products, onAddToCart }) => {
+const Headwears = ({ products, onAddToCart, letAdd, productID }) => {
     const classes = useStyles();
     let productBox = products.filter(prod => prod.categories[0].name === "Headwear" );
 
@@ -15,7 +15,7 @@ const Headwears = ({ products, onAddToCart }) => {
             {productBox.map((product) =>(
                 
                 <Grid item key={product.id} xs={12} sm={6} lg={3}>
-                    <Headwear product={product} onAddToCart={onAddToCart} />
+                    <Headwear product={product} letAdd={letAdd} productID={productID} onAddToCart={onAddToCart} />
                 </Grid>
             ))}
         </Grid>
