@@ -115,11 +115,11 @@ const App = () => {
     
     return (
         <Router>
-            <div>
+            <div style={{marginBottom: "100px"}}>
                 <Navbar totalItems={cart.total_items} />
                 <Switch>
                     <Route exact path="/">
-                        <Products products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart}  />
+                        <Products  products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart}  />
                     </Route>
                     <Route exact path="/headwear">
                         <Headwears products={products} letAdd={letAdd} productID={productID} onAddToCart={handleAddToCart} /> 

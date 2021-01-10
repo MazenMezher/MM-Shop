@@ -54,6 +54,8 @@
     white-space: nowrap;
 }
 
+
+
 @media only screen and (max-width: 700px) {
     .iconText {display: none;}
 }
@@ -64,4 +66,12 @@
 
 @media only screen and (max-width: 1100px) {
     .iconText {font-size: 80%;}
+}
+
+@media only screen and (max-width: 1000px) {
+  .iconText {font-size: 80%;}
+}
+
+@media only screen and (max-width: 960px) {
+  .hiddenBottom {visibility: hidden;}
 }

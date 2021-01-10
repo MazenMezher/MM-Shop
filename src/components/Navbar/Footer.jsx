@@ -30,7 +30,7 @@ const Footer = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      
+      <div className={"hiddenBottom"}>
       <AppBar position="fixed" color="primary" className={classes.appBarTwo}>
         <Toolbar className={classes.toolBarFooter}>
           <div className={classes.grow} />
@@ -59,6 +59,7 @@ const Footer = () => {
           </Typography>
         </Toolbar>
       </AppBar>
+    </div>
     </React.Fragment>
   );
 }
