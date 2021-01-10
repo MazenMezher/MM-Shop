@@ -27,4 +27,18 @@ export default makeStyles((theme) => ({
       width: '100%',
       justifyContent: 'space-between',
     },
+    root: {
+      maxWidth: '100%',
+      maxHeight: "100%",
+      position: "fixed",
+      top: "30%",
+      left: "50%",
+      /* bring your own prefixes */
+      transform: "translate(-50%, -30%)",
+      display: 'flex',
+      alignItems: "center",
+      justifyContent: "center",
+  },
+  
+  
   }));

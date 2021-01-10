@@ -26,8 +26,8 @@ const Products = ({ products, onAddToCart, letAdd, productID }) => {
         <>
         <main className={classes.content}>
             <div className={classes.toolbar} />
-            <Typography variant="h4" className={classes.title} color="inherit">
-                        New Products
+            <Typography variant="h4" className={classes.title} color="inherit" >
+                        New Products &nbsp; &#8628;
                         <br />
                     </Typography>
         <Grid container justify="center" spacing={4}>
@@ -38,7 +38,7 @@ const Products = ({ products, onAddToCart, letAdd, productID }) => {
             ))}
         </Grid>
         <Typography variant="h4" className={classes.title} color="inherit">
-                    Products with discount
+                    Products with discount 	&nbsp; &#8628;
                     <br />
         </Typography>
         <Grid container justify="center" spacing={4}>
