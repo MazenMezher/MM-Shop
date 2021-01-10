@@ -7,3 +7,4 @@ export {default as TopClothes } from "../components/Categories/TopClothes";
 export {default as BottomClothes } from "../components/Categories/BottomClothes";
 export {default as Shoes } from "../components/Categories/Shoes";
 export {default as Belts } from "../components/Categories/Belts";
+export { default as Footer } from "./Navbar/Footer";

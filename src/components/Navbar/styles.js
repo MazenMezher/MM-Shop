@@ -11,15 +11,23 @@ export default makeStyles((theme) => ({
       marginLeft: drawerWidth,
     },
   },
+  image: {
+    marginRight: '10px',
+  },
   title: {
     flexGrow: 1,
     alignItems: 'center',
     display: 'flex',
     textDecoration: 'none',
+    
   },
-  image: {
-    marginRight: '10px',
+  titleTwo: {
+    flexGrow: 1,
+    color: "black",
+    textDecoration: 'none',
+    
   },
+  
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
@@ -65,4 +73,32 @@ export default makeStyles((theme) => ({
       width: '20ch',
     },
   },
+  appBarTwo: {
+    top: 'auto',
+    bottom: 0,
+  },
+  toolBarFooter: {
+    boxShadow: 'none',
+    borderTop: '1px solid rgba(0, 0, 0, 0.40)',
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+    flexGrow: 1,
+    alignItems: 'space-between',
+    display: 'flex',
+    
+    backgroundColor: "white",
+    color: "black",
+  },
+  iconsInFooter: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+  push: {
+    
+    marginRight: "-26px",
+  }
+  
+  
 }));

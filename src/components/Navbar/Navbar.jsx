@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography, Container } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 
@@ -21,27 +21,27 @@ const Navbar = ({ totalItems }) => {
             <AppBar position="fixed" className={classes.appBar} color="inherit">
                 <Toolbar>
                     <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
-                        <img src={logo} alt="Shop-Name" height="25px" className={classes.image} />
+                        <img src={logo} alt="Shop-Name" height="35px" className={classes.image} />
                         ShopName
                     </Typography>
                     <Typography component={Link} to="/headwear" variant="h6" className={classes.title} color="inherit">
-                        <img src={headwear} alt="Shop-Name" height="25px" className={classes.image} />
+                        <img src={headwear} alt="Shop-Name" height="35px" className={classes.image} />
                         <div className={"iconText"}>Headwear</div>
                     </Typography>
                     <Typography component={Link} to="/topclothes" variant="h6" className={classes.title} color="inherit">
-                        <img src={topClothes} alt="Shop-Name" height="25px" className={classes.image} />
+                        <img src={topClothes} alt="Shop-Name" height="35px" className={classes.image} />
                         <div className={"iconText"}>Top Clothes</div>
                     </Typography>
                     <Typography component={Link} to="/belts" variant="h6" className={classes.title} color="inherit">
-                        <img src={belt} alt="Shop-Name" height="45px" className={classes.image} />
+                        <img src={belt} alt="Shop-Name" height="55px" className={classes.image} />
                         <div className={"iconText"}>Belts</div>
                     </Typography>
                     <Typography component={Link} to="/bottomclothes" variant="h6" className={classes.title} color="inherit">
-                        <img src={bottomClothes} alt="Shop-Name" height="25px" className={classes.image} />
+                        <img src={bottomClothes} alt="Shop-Name" height="35px" className={classes.image} />
                         <div className={"iconText"}>Bottom Clothes</div>
                     </Typography>
                     <Typography component={Link} to="/shoes" variant="h6" className={classes.title} color="inherit">
-                        <img src={shoeIcon} alt="Shop-Name" height="25px" className={classes.image} />
+                        <img src={shoeIcon} alt="Shop-Name" height="35px" className={classes.image} />
                         <div className={"iconText"}>Shoes</div>
                     </Typography>
                     <div className={classes.grow} />
@@ -57,6 +57,7 @@ const Navbar = ({ totalItems }) => {
                     
                 </Toolbar>
             </AppBar>
+            
         </>
     )
 }

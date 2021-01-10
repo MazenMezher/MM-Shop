@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { commerce } from "./Library/commerce";
-import { Products, Navbar, Cart, Checkout, Headwears, TopClothes, BottomClothes, Shoes, Belts } from "./components";
+import { Products, Navbar, Cart, Checkout, Headwears, TopClothes, BottomClothes, Shoes, Belts, Footer } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
@@ -148,6 +148,7 @@ const App = () => {
                         <Checkout products={products} cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
                     </Route>
                 </Switch>
+                <Footer />
             </div>
         </Router>
     )
