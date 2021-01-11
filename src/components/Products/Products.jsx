@@ -6,7 +6,8 @@ import useStyles from "./styles";
 
 const Products = ({ products, onAddToCart, letAdd, productID }) => {
     const classes = useStyles();
-    
+    console.log(letAdd)
+    console.log(productID)
     let newProducts = products.filter(prod => prod.categories[0].name === "New products");
     let productDiscount = products.filter(prod => prod.categories[0].name === "Products on discount");
     // [cart].map(cartProd => {

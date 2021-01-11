@@ -8,14 +8,14 @@ import PaymentForm from "../PaymentForm";
 
 const steps = ["Shipping address", "Payment details"];
 
-const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
+const Checkout = ({ cart, order, onCaptureCheckout, error,  }) => {
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [isFinished, setIsFinished] = useState(false);
     const [shippingData, setShippingData] = useState({});
     const history = useHistory();
     const classes = useStyles();
-
+    
     useEffect(() => {
         const generateToken = async () => {
             try {

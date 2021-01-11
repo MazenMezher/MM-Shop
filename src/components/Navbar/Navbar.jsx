@@ -22,7 +22,7 @@ const Navbar = ({ totalItems }) => {
                 <Toolbar>
                     <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
                         <img src={logo} alt="Shop-Name" height="35px" className={classes.image} />
-                        ShopName
+                        <div className={"iconText2"}>ShopName</div>
                     </Typography>
                     <Typography component={Link} to="/headwear" variant="h6" className={classes.title} color="inherit">
                         <img src={headwear} alt="Shop-Name" height="35px" className={classes.image} />

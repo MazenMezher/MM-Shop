@@ -23,30 +23,33 @@ const App = () => {
 
     const handleAddToCart = async (productId, quantity) => {
         const { cart } = await commerce.cart.add(productId, quantity);
-        setProductID(productId)
-            console.log(products)
+        
+        
             const isValid = cart.line_items.every((cartItem) => {
                 const item = products.find(productsItem => cartItem.product_id === productsItem.id)
             
                 return cartItem.quantity < item.quantity
-            })
-                        
+            })   
+        setProductID(productId) 
+        setLetAdd(isValid)           
         setCart(cart);
         fetchProducts();
-        setLetAdd(isValid)
+        
+        
         console.log(isValid)
         
 }
 
 
-    const handleUpdateCartQty = async (productId, quantity) => {
+    const handleUpdateCartQty = async (productId, quantity, itemFromCart) => {
         const { cart } = await commerce.cart.update(productId, { quantity });
-
+        console.log(itemFromCart)
         const isValid = cart.line_items.every((cartItem) => {
             const item = products.find(productsItem => cartItem.product_id === productsItem.id)
         
             return cartItem.quantity < item.quantity
         })
+        setProductID(productId)
         setLetAdd(isValid)
         setCart(cart);
         fetchProducts(); 
@@ -141,6 +144,9 @@ const App = () => {
                             handleUpdateCartQty={handleUpdateCartQty}
                             handleRemoveFromCart={handleRemoveFromCart}
                             handleEmptyCart={handleEmptyCart}
+                            letAdd={letAdd}
+                            productID={productID}
+                            products={products}
                             
                         />
                     </Route>
