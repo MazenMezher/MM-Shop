@@ -62,6 +62,7 @@ const App = () => {
         
             return cartItem.quantity < item.quantity
         })
+        setProductID(productId)
         setLetAdd(isValid)
         setCart(cart);
     }

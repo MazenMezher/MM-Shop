@@ -9,7 +9,7 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart, products, p
     console.log(productID)
     console.log(item)
     console.log(letAdd)
-    if(item.product_id === productID && letAdd === false){
+    if(item.product_id === productID && letAdd === true){
         return (
             <Card>
                 <CardMedia image={item.media.source} alt={item.name} className={classes.media} />
@@ -19,7 +19,7 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart, products, p
                 </CardContent>
                 <CardActions className={classes.cardActions} >
                     <div className={classes.buttons}>
-                        <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>-</Button>
+                        <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1, item.product_id)}>-</Button>
                         <Typography>{item.quantity}</Typography>
                         <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1, item.product_id)}>+</Button>
                     </div>
@@ -38,7 +38,7 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart, products, p
                 </CardContent>
                 <CardActions className={classes.cardActions} >
                     <div className={classes.buttons}>
-                        <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>-</Button>
+                        <Button type="button" size="small" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1, item.product_id)}>-</Button>
                         <Typography>{item.quantity}</Typography>
                         <Typography>&nbsp;of {item.quantity}</Typography>
                         <Button type="button" size="small"></Button>
