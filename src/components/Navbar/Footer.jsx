@@ -66,6 +66,7 @@ const Footer = () => {
                 href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 target="_blank"
                 className={classes.titleTwo}
+                alt="copy right sign"
               >
                 <Copyright className={classes.titleTwo} />
               </a>
@@ -76,26 +77,31 @@ const Footer = () => {
                   href="https://www.facebook.com/"
                   class="fa fa-facebook"
                   target="_blank"
+                  alt="facebook social media link"
                 ></a>
                 <a
                   href="https://twitter.com/"
                   class="fa fa-twitter"
                   target="_blank"
+                  alt="twitter social media link"
                 ></a>
                 <a
                   href="https://www.youtube.com/"
                   class="fa fa-youtube"
                   target="_blank"
+                  alt="youtube social media link"
                 ></a>
                 <a
                   href="https://www.instagram.com/"
                   class="fa fa-instagram"
                   target="_blank"
+                  alt="instagram social media link"
                 ></a>
                 <a
                   href="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fwelcome"
                   class="fa fa-snapchat-ghost"
                   target="_blank"
+                  alt="snapchat social media link"
                 ></a>
               </div>
             </Typography>
