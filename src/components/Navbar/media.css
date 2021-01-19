@@ -1,110 +1,143 @@
-
 .fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 70px;
-    text-align: center;
-    text-decoration: none;
-    
-  }
-  
-  /* Add a hover effect if you want */
-  .fa:hover {
-    opacity: 0.9;
-  }
-  
-  /* Set a specific color for each brand */
-  
-  /* Facebook */
-  .fa-facebook {
-    background: #3B5998;
-    color: white;
-  }
-  
-  /* Twitter */
-  .fa-twitter {
-    background: #55ACEE;
-    color: white;
-  }
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+}
 
-  .fa-snapchat-ghost {
-    background: #fffc00;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  }
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.9;
+}
 
-  .fa-youtube {
-    background: #bb0000;
-    color: white;
-  }
-  
-  .fa-instagram {
-    background: #125688;
-    color: white;
-  }
+/* Set a specific color for each brand */
 
+/* Facebook */
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
 
-  /* icons of header */
+/* Twitter */
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+/* icons of header */
 .image {
-    width: 45px;
-    
+  width: 45px;
 }
 
 .iconText {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
-
 @media only screen and (max-width: 320) {
-  .iconText {display: none;}
+  .iconText {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-  .iconText {font-size: 1%;}
+  .iconText {
+    font-size: 1%;
+  }
 }
 
 /* sada */
 
 @media only screen and (max-width: 330) {
-  .iconText {display: none;}
-  .iconText2 {visibility: hidden;}
+  .iconText {
+    display: none;
+  }
+  .iconText2 {
+    visibility: hidden;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-  .iconText {font-size: "5px !important";}
-  .iconText2 {font-size: 30%;}
+  .iconText {
+    font-size: "5px !important";
+  }
+  .iconText2 {
+    font-size: 30%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
-  .iconText {font-size: 80%;}
-  .iconText2 {font-size: 80%;}
+  .iconText {
+    font-size: 80%;
+  }
+  .iconText2 {
+    font-size: 80%;
+  }
 }
 
 @media only screen and (max-width: 550px) {
-.iconText {font-size: 80%;}
-.iconText {font-size: 80%;}
+  .iconText {
+    font-size: 80%;
+  }
+  .iconText {
+    font-size: 80%;
+  }
 }
 /* fsdfsd */
 @media only screen and (max-width: 800px) {
-    .iconText {display: none;}
-    .iconText2 {display: none;}
+  .iconText {
+    display: none;
+  }
+  .iconText2 {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 900px) {
-    .iconText {font-size: 60%;}
-    .iconText2 {font-size: 60%;}
+  .iconText {
+    font-size: 60%;
+  }
+  .iconText2 {
+    font-size: 60%;
+  }
 }
 
 @media only screen and (max-width: 1100px) {
-    .iconText {font-size: 80%;}
-    .iconText2 {font-size: 80%;}
+  .iconText {
+    font-size: 80%;
+  }
+  .iconText2 {
+    font-size: 80%;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
-  .iconText {font-size: 80%;}
-  .iconText2 {font-size: 80%;}
+  .iconText {
+    font-size: 80%;
+  }
+  .iconText2 {
+    font-size: 80%;
+  }
 }
 
 @media only screen and (max-width: 960px) {
-  .hiddenBottom {visibility: hidden;}
+  .hiddenBottom {
+    visibility: hidden;
+  }
 }
