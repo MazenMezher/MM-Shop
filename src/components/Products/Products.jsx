@@ -6,8 +6,8 @@ import useStyles from "./styles";
 
 const Products = ({ products, onAddToCart, letAdd, productID }) => {
   const classes = useStyles();
-  console.log(letAdd);
-  console.log(productID);
+
+  // filtering out to only render New products and Products on discount for the frontpage
   let newProducts = products.filter(
     (prod) => prod.categories[0].name === "New products"
   );
