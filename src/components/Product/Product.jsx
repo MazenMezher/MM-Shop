@@ -8,13 +8,58 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
-
 import useStyles from "./styles";
 
-const Product = ({ product, onAddToCart, letAdd, productID }) => {
+// utils
+// service
+// seperate to a layer
+// import from Library and remove this functi
+
+const Product = ({
+  product,
+  onAddToCart,
+  letAdd,
+  productID,
+  cart,
+  isAllowedToAddProduct,
+}) => {
   const classes = useStyles();
 
-  if (product.id === productID && letAdd === false) {
+  // Caled a computed property
+
+  const canAddMore = isAllowedToAddProduct(product, cart.line_items);
+
+  // return (
+  //   <Card className={classes.root}>
+  //     <CardMedia
+  //       className={classes.media}
+  //       image={product.media.source}
+  //       title={product.name}
+  //     />
+  //     <CardContent>
+  //       <div className={classes.cardContent}>
+  //         <Typography variant="h5" gutterBottom>
+  //           {product.name}
+  //         </Typography>
+  //         <Typography variant="h5">
+  //           {product.price.formatted + " kr"}
+  //         </Typography>
+  //       </div>
+  //       <Typography variant="h5" color="textSecondary">
+  //         Item is out of stock!
+  //       </Typography>
+  //     </CardContent>
+  //     <CardActions disableSpacing className={classes.cardActions}>
+  //       <IconButton aria-label="Add to Card">
+  //         <AddShoppingCart style={{ color: "red" }} />
+  //       </IconButton>
+  //     </CardActions>
+  //   </Card>
+  // );
+
+  // Dont do letAdd === false
+  // !letAdd (same thing)
+  if (!canAddMore) {
     return (
       <Card className={classes.root}>
         <CardMedia
@@ -35,6 +80,7 @@ const Product = ({ product, onAddToCart, letAdd, productID }) => {
             Max products added to cart!
           </Typography>
         </CardContent>
+        {/* Make into own component and then use conditionals to decide what state to render! */}
         <CardActions disableSpacing className={classes.cardActions}>
           <IconButton aria-label="Add to Card">
             <AddShoppingCart style={{ color: "red" }} />
@@ -44,7 +90,7 @@ const Product = ({ product, onAddToCart, letAdd, productID }) => {
     );
   }
 
-  if (product.conditionals.is_sold_out === false) {
+  if (!product.conditionals.is_sold_out) {
     return (
       <Card className={classes.root}>
         <CardMedia

@@ -11,10 +11,17 @@ import { AddShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
 
-const Shoe = ({ product, onAddToCart, letAdd, productID }) => {
+const Shoe = ({
+  product,
+  onAddToCart,
+  letAdd,
+  productID,
+  isAllowedToAddProduct,
+  cart,
+}) => {
   const classes = useStyles();
-
-  if (product.id === productID && letAdd === false) {
+  const canAddMore = isAllowedToAddProduct(product, cart.line_items);
+  if (!canAddMore) {
     return (
       <Card className={classes.root}>
         <CardMedia

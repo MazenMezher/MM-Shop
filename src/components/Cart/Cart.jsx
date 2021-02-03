@@ -21,9 +21,11 @@ const Cart = ({
   letAdd,
   productID,
   products,
+  quantity,
+  isAllowedToAddProduct,
 }) => {
   const classes = useStyles();
-  console.log(letAdd);
+
   const EmptyCart = () => (
     <Card className={classes.root}>
       <CardContent>
@@ -57,6 +59,8 @@ const Cart = ({
               letAdd={letAdd}
               productID={productID}
               products={products}
+              quantity={quantity}
+              isAllowedToAddProduct={isAllowedToAddProduct}
             />
           </Grid>
         ))}

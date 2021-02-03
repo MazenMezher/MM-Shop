@@ -1,10 +1,17 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
-
 import Product from "../Product/Product";
 import useStyles from "./styles";
 
-const Products = ({ products, onAddToCart, letAdd, productID }) => {
+// Pass current cart which we need for a computed property!
+const Products = ({
+  products,
+  onAddToCart,
+  letAdd,
+  productID,
+  cart,
+  isAllowedToAddProduct,
+}) => {
   const classes = useStyles();
 
   // filtering out to only render New products and Products on discount for the frontpage
@@ -31,6 +38,8 @@ const Products = ({ products, onAddToCart, letAdd, productID }) => {
                 onAddToCart={onAddToCart}
                 letAdd={letAdd}
                 productID={productID}
+                cart={cart}
+                isAllowedToAddProduct={isAllowedToAddProduct}
               />
             </Grid>
           ))}
@@ -47,6 +56,8 @@ const Products = ({ products, onAddToCart, letAdd, productID }) => {
                 onAddToCart={onAddToCart}
                 letAdd={letAdd}
                 productID={productID}
+                cart={cart}
+                isAllowedToAddProduct={isAllowedToAddProduct}
               />
             </Grid>
           ))}

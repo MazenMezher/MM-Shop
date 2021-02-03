@@ -17,13 +17,17 @@ const CartItem = ({
   products,
   productID,
   letAdd,
+  isAllowedToAddProduct,
+  cart,
 }) => {
   const classes = useStyles();
-  console.log(products);
-  console.log(productID);
-  console.log(item);
-  console.log(letAdd);
-  if (item.product_id === productID && letAdd === true) {
+  console.log(item.product_id);
+
+  const canAddMore = isAllowedToAddProduct(item, cart.line_items);
+
+  // let newQuantity = products.forEach((prod) => console.log(prod));
+  // console.log(newQuantity);
+  if (!canAddMore) {
     return (
       <Card>
         <CardMedia
@@ -35,6 +39,7 @@ const CartItem = ({
           <Typography variant="h4">{item.name} </Typography>
           <Typography variant="h5">{item.line_total.formatted} kr </Typography>
         </CardContent>
+        <CardContent></CardContent>
         <CardActions className={classes.cardActions}>
           <div className={classes.buttons}>
             <Button
@@ -46,6 +51,7 @@ const CartItem = ({
             >
               -
             </Button>
+
             <Typography>{item.quantity}</Typography>
             <Button
               type="button"
@@ -80,6 +86,9 @@ const CartItem = ({
           <Typography variant="h4">{item.name} </Typography>
           <Typography variant="h5">{item.line_total.formatted} kr </Typography>
         </CardContent>
+        <CardContent>
+          <Typography>Max items added to cart</Typography>
+        </CardContent>
         <CardActions className={classes.cardActions}>
           <div className={classes.buttons}>
             <Button
@@ -92,7 +101,6 @@ const CartItem = ({
               -
             </Button>
             <Typography>{item.quantity}</Typography>
-            <Typography>&nbsp;of {item.quantity}</Typography>
             <Button type="button" size="small"></Button>
           </div>
           <Button
