@@ -177,7 +177,7 @@ const App = () => {
 
   return (
     <Router>
-      <div style={{ marginBottom: "100px" }}>
+      <div style={{ height: "100%", marginBottom: "55px" }}>
         <Navbar totalItems={cart.total_items} />
         <Switch>
           <Route exact path="/">
@@ -263,8 +263,8 @@ const App = () => {
             />
           </Route>
         </Switch>
-        <Footer />
       </div>
+      <Footer />
     </Router>
   );
 };

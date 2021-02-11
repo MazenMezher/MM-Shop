@@ -72,7 +72,7 @@ const Footer = () => {
               </a>
             </Typography>
             <Typography className={classes.iconsInFooter}>
-              <div className={classes.push}>
+              <div className={classes.push} alt="social media boxes">
                 <a
                   href="https://www.facebook.com/"
                   class="fa fa-facebook"

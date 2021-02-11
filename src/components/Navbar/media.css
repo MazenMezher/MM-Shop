@@ -136,6 +136,10 @@
   }
 }
 
+.hiddenBottom {
+  background-color: green;
+}
+
 @media only screen and (max-width: 960px) {
   .hiddenBottom {
     visibility: hidden;

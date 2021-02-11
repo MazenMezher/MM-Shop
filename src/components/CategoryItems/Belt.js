@@ -35,53 +35,18 @@ const Belt = ({
             <Typography variant="h5" gutterBottom>
               {product.name}
             </Typography>
-          </div>
-          <Typography variant="h5" color="textSecondary">
-            Max products added to cart!
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing className={classes.cardActions}>
-          <IconButton aria-label="Add to Card">
-            <AddShoppingCart style={{ color: "red" }} />
-          </IconButton>
-        </CardActions>
-      </Card>
-    );
-  }
-
-  if (product.conditionals.is_sold_out === false) {
-    return (
-      <Card className={classes.root}>
-        <CardMedia
-          className={classes.media}
-          image={product.media.source}
-          title={product.name}
-        />
-        <CardContent>
-          <div className={classes.cardContent}>
-            <Typography variant="h5" gutterBottom>
-              {product.name}
-            </Typography>
-
             <Typography variant="h5">
               {product.price.formatted + " kr"}
             </Typography>
-            <Typography variant="h5" gutterBottom>
-              {product.quantity} in Stock
-            </Typography>
           </div>
-          <Typography
-            dangerouslySetInnerHTML={{ __html: product.description }}
-            variant="body2"
-            color="textSecondary"
-          />
+          <Typography variant="h5" color="textSecondary">
+            Max products added to cart! Or out of stock!
+          </Typography>
         </CardContent>
+        {/* Make into own component and then use conditionals to decide what state to render! */}
         <CardActions disableSpacing className={classes.cardActions}>
-          <IconButton
-            aria-label="Add to Card"
-            onClick={() => onAddToCart(product.id, 1)}
-          >
-            <AddShoppingCart />
+          <IconButton aria-label="Add to Card">
+            <AddShoppingCart style={{ color: "red" }} />
           </IconButton>
         </CardActions>
       </Card>
@@ -102,14 +67,22 @@ const Belt = ({
             <Typography variant="h5">
               {product.price.formatted + " kr"}
             </Typography>
+            <Typography variant="h5" gutterBottom>
+              {product.quantity} in Stock
+            </Typography>
           </div>
-          <Typography variant="h5" color="textSecondary">
-            Item is out of stock!
-          </Typography>
+          <Typography
+            dangerouslySetInnerHTML={{ __html: product.description }}
+            variant="body2"
+            color="textSecondary"
+          />
         </CardContent>
         <CardActions disableSpacing className={classes.cardActions}>
-          <IconButton aria-label="Add to Card">
-            <AddShoppingCart style={{ color: "red" }} />
+          <IconButton
+            aria-label="Add to Card"
+            onClick={() => onAddToCart(product.id, 1)}
+          >
+            <AddShoppingCart />
           </IconButton>
         </CardActions>
       </Card>

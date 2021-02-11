@@ -91,6 +91,7 @@ const AddressForm = ({ checkoutToken, next }) => {
       </Typography>
       <FormProvider {...methods}>
         <form
+          style={{ marginBottom: "30px" }}
           onSubmit={methods.handleSubmit((data) =>
             next({
               ...data,

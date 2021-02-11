@@ -61,6 +61,7 @@ const Cart = ({
               products={products}
               quantity={quantity}
               isAllowedToAddProduct={isAllowedToAddProduct}
+              cart={cart}
             />
           </Grid>
         ))}
@@ -71,7 +72,7 @@ const Cart = ({
           Subtotal: {cart.subtotal.formatted}kr
         </Typography>
 
-        <div>
+        <div style={{ marginBottom: "50px" }}>
           <Button
             className={classes.emptyButton}
             size="large"

@@ -5,11 +5,16 @@ const drawerWidth = 0;
 export default makeStyles((theme) => ({
   appBar: {
     boxShadow: "none",
+    borderBottomLeftRadius: "-50%",
+    borderBottomRightRadius: "-50%",
     borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
+    background: "rgb(0,0,0)",
+    background:
+      "linear-gradient(167deg, rgba(0,0,0,0.8354692218684349) 8%, rgba(255,215,0,0.9026961126247374) 46%, rgba(189,189,181,0.9559174011401436) 100%)",
   },
   image: {
     marginRight: "10px",
@@ -86,7 +91,9 @@ export default makeStyles((theme) => ({
     alignItems: "space-between",
     display: "flex",
 
-    backgroundColor: "white",
+    background: "rgb(0,0,0)",
+    background:
+      "linear-gradient(9deg, rgba(0,0,0,0.8606793059020483) 5%, rgba(255,215,0,0.9026961126247374) 46%, rgba(189,189,181,0.9559174011401436) 100%)",
     color: "black",
   },
   iconsInFooter: {

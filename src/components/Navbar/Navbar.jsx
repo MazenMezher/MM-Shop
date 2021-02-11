@@ -9,7 +9,7 @@ import {
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 
-import logo from "../../assets/DeliveryIcon.png";
+import logo from "../../assets/SILKCHIE.png";
 import shoeIcon from "../../assets/shoes.png";
 import topClothes from "../../assets/tshirt.png";
 import headwear from "../../assets/cap.png";
@@ -39,7 +39,7 @@ const Navbar = ({ totalItems }) => {
               height="35px"
               className={classes.image}
             />
-            <div className={"iconText2"}>ShopName</div>
+            <div className={"iconText2"}></div>
           </Typography>
           <Typography
             component={Link}

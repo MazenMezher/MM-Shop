@@ -26,39 +26,9 @@ const Product = ({
   const classes = useStyles();
 
   // Caled a computed property
-
+  console.log(product, cart.line_items);
   const canAddMore = isAllowedToAddProduct(product, cart.line_items);
 
-  // return (
-  //   <Card className={classes.root}>
-  //     <CardMedia
-  //       className={classes.media}
-  //       image={product.media.source}
-  //       title={product.name}
-  //     />
-  //     <CardContent>
-  //       <div className={classes.cardContent}>
-  //         <Typography variant="h5" gutterBottom>
-  //           {product.name}
-  //         </Typography>
-  //         <Typography variant="h5">
-  //           {product.price.formatted + " kr"}
-  //         </Typography>
-  //       </div>
-  //       <Typography variant="h5" color="textSecondary">
-  //         Item is out of stock!
-  //       </Typography>
-  //     </CardContent>
-  //     <CardActions disableSpacing className={classes.cardActions}>
-  //       <IconButton aria-label="Add to Card">
-  //         <AddShoppingCart style={{ color: "red" }} />
-  //       </IconButton>
-  //     </CardActions>
-  //   </Card>
-  // );
-
-  // Dont do letAdd === false
-  // !letAdd (same thing)
   if (!canAddMore) {
     return (
       <Card className={classes.root}>
@@ -77,7 +47,7 @@ const Product = ({
             </Typography>
           </div>
           <Typography variant="h5" color="textSecondary">
-            Max products added to cart!
+            Max products added to cart! Or out of stock!
           </Typography>
         </CardContent>
         {/* Make into own component and then use conditionals to decide what state to render! */}
@@ -88,9 +58,7 @@ const Product = ({
         </CardActions>
       </Card>
     );
-  }
-
-  if (!product.conditionals.is_sold_out) {
+  } else {
     return (
       <Card className={classes.root}>
         <CardMedia
@@ -122,34 +90,6 @@ const Product = ({
             onClick={() => onAddToCart(product.id, 1)}
           >
             <AddShoppingCart />
-          </IconButton>
-        </CardActions>
-      </Card>
-    );
-  } else {
-    return (
-      <Card className={classes.root}>
-        <CardMedia
-          className={classes.media}
-          image={product.media.source}
-          title={product.name}
-        />
-        <CardContent>
-          <div className={classes.cardContent}>
-            <Typography variant="h5" gutterBottom>
-              {product.name}
-            </Typography>
-            <Typography variant="h5">
-              {product.price.formatted + " kr"}
-            </Typography>
-          </div>
-          <Typography variant="h5" color="textSecondary">
-            Item is out of stock!
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing className={classes.cardActions}>
-          <IconButton aria-label="Add to Card">
-            <AddShoppingCart style={{ color: "red" }} />
           </IconButton>
         </CardActions>
       </Card>

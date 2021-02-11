@@ -21,8 +21,7 @@ const CartItem = ({
   cart,
 }) => {
   const classes = useStyles();
-  console.log(item.product_id);
-
+  console.log(item, cart.line_items);
   const canAddMore = isAllowedToAddProduct(item, cart.line_items);
 
   // let newQuantity = products.forEach((prod) => console.log(prod));
