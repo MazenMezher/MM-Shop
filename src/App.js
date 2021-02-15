@@ -177,7 +177,13 @@ const App = () => {
 
   return (
     <Router>
-      <div style={{ height: "100%", marginBottom: "55px" }}>
+      <div
+        style={{
+          height: "100%",
+          marginBottom: "55px",
+          backgroundColor: "lightgrey",
+        }}
+      >
         <Navbar totalItems={cart.total_items} />
         <Switch>
           <Route exact path="/">

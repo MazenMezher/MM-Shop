@@ -39,7 +39,6 @@ const Navbar = ({ totalItems }) => {
               height="35px"
               className={classes.image}
             />
-            <div className={"iconText2"}></div>
           </Typography>
           <Typography
             component={Link}

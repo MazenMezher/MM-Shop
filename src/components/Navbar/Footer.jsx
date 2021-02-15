@@ -4,7 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
+import logo from "../../assets/SILKCHIE.png";
 
 import useStyles from "./styles";
 import "./media.css";
@@ -14,7 +14,7 @@ function Copyright() {
   return (
     <Typography variant="body4">
       {"Copyright © "}
-      ShopName {new Date().getFullYear()}
+      SILKCHIE {new Date().getFullYear()}
       {"."}
     </Typography>
   );
@@ -37,7 +37,7 @@ const Footer = () => {
               color="inherit"
               className={classes.titleTwo}
             >
-              ShopName
+              <img src={logo} alt="Shop-Name" height="35px" />
             </Typography>
             <Typography
               component={Link}
@@ -46,7 +46,7 @@ const Footer = () => {
               color="inherit"
               className={classes.titleTwo}
             >
-              Email
+              Usbminnet@hotmail.com
             </Typography>
             <Typography
               component={Link}
@@ -58,12 +58,26 @@ const Footer = () => {
               076-715-24-67
             </Typography>
             <Typography
+              component={Link}
+              to="/"
+              variant="h6"
+              color="inherit"
+              className={classes.titleTwo}
+            ></Typography>
+            <Typography
+              component={Link}
+              to="/"
+              variant="h6"
+              color="inherit"
+              className={classes.titleTwo}
+            ></Typography>
+            <Typography
               variant="h6"
               color="inherit"
               className={classes.titleTwo}
             >
               <a
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                href="/"
                 target="_blank"
                 className={classes.titleTwo}
                 alt="copy right sign"

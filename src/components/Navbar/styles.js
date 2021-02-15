@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
       "linear-gradient(167deg, rgba(0,0,0,0.8354692218684349) 8%, rgba(255,215,0,0.9026961126247374) 46%, rgba(189,189,181,0.9559174011401436) 100%)",
   },
   image: {
-    marginRight: "10px",
+    marginLeft: "-10px",
   },
   title: {
     flexGrow: 1,

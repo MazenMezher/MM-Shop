@@ -45,7 +45,7 @@ const Cart = ({
   );
 
   const FilledCart = () => (
-    <>
+    <div>
       <Typography className={classes.title} variant="h3" gutterBottom>
         Your Shopping Cart
       </Typography>
@@ -96,7 +96,7 @@ const Cart = ({
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 
   if (!cart.line_items) return "Loading...";

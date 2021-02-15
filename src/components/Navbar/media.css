@@ -140,7 +140,17 @@
   background-color: green;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1140px) {
+  .fa {
+    padding: 20px;
+    font-size: 25px;
+    width: 55px;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
   .hiddenBottom {
     visibility: hidden;
   }

@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
   title: {
     marginTop: "5%",
   },
+
   emptyButton: {
     minWidth: "150px",
     [theme.breakpoints.down("xs")]: {
@@ -27,6 +28,9 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
   },
   root: {
+    background: "rgb(255,215,0)",
+    background:
+      "linear-gradient(27deg, rgba(255,215,0,0.9531162806919643) 8%, rgba(189,189,181,0.9307073171065301) 24%, rgba(255,255,255,1) 63%)",
     maxWidth: "100%",
     maxHeight: "100%",
     position: "fixed",
